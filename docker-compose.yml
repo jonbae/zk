@@ -1,0 +1,19 @@
+# version: '3'
+
+# services:
+#   zk_backend:
+#     image: python:3.8
+
+#     command: sh -c "pip install -r requirements.txt && python manage.py runserver"
+
+#     environment:
+#       - PORT=8000
+#       - DJANGO_ENV=development
+
+#     ports:
+#       - '8000:8000'
+
+#     working_dir: /root/zk_backend
+
+#     volumes:
+#       - ./zk_backend:/root/zk_backend:cached
