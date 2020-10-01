@@ -25,7 +25,7 @@ SECRET_KEY = '!95=3b8lnb457vqhg)=nj%l*-_5g=#ugr@@0rjudldvcq2x+!4'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['0.0.0.0']
 
 
 # Application definition
@@ -76,11 +76,11 @@ WSGI_APPLICATION = 'zk_backend.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'ygamvaqq',
-        'USER': 'ygamvaqq',
-        'PASSWORD': 'y1jHm2KpEYsCFv3T4M8DIEpj5TFZbW5H',
-        'HOST': 'lallah.db.elephantsql.com',
-        'PORT': '5432'
+        'NAME': 'postgres',
+        'USER': 'postgres',
+        'PASSWORD': 'postgres',
+        'HOST': 'db',
+        'PORT': 5432,
     }
 }
 
