@@ -1,19 +1,39 @@
-# version: '3'
+version: '3'
+   
+services:
+  db:
+    container_name: postgres_db
+    image: postgres
+    environment:
+      - POSTGRES_DB=postgres
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
 
-# services:
-#   zk_backend:
-#     image: python:3.8
+  zk_backend:
+    container_name: zk_backend
+    build: .
+    command: sh -c "pip install -r requirements.txt && python zk_backend/manage.py runserver 0.0.0.0:8000"
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
+    depends_on:
+      - db
 
-#     command: sh -c "pip install -r requirements.txt && python manage.py runserver"
+  zk_frontend:
+    container_name: zk_frontend
+    build: ./zk_frontend
+    command: npm start
+    volumes:
+      - ./zk_frontend:/app/zk_frontend
+      - /app/zk_frontend/node_modules
+    ports:
+      - "3000:3000"
+    environment:
+        - NODE_ENV=development
+    stdin_open: true
+      
 
-#     environment:
-#       - PORT=8000
-#       - DJANGO_ENV=development
 
-#     ports:
-#       - '8000:8000'
 
-#     working_dir: /root/zk_backend
 
-#     volumes:
-#       - ./zk_backend:/root/zk_backend:cached
