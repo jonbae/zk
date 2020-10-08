@@ -6,6 +6,7 @@ const Home: React.FC = () => {
     <>
       <h1>home page</h1>
       <Link to="/profile"> back to profile page</Link>
+      &nbsp;
       <Link to="/editor"> back to editor page</Link>
     </>
   );
